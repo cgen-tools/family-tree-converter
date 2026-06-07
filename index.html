@@ -286,7 +286,14 @@
 
           // job
           if (cat.rank) {
-            script = script.concat(`\tj${cat.rank}`);
+            const rankWords = cat.rank.split(" ");
+            const capitalizedRankWords = [];
+            for (const word of rankWords) {
+              capitalizedRankWords.push(
+                word.charAt(0).toUpperCase() + word.substring(1),
+              );
+            }
+            script = script.concat(`\tj${capitalizedRankWords.join(" ")}`);
           }
 
           // parents
